@@ -1,0 +1,9 @@
+log_level: info
+listen_address: "0.0.0.0:8088"
+metrics:
+  - name: test
+    cmd: echo 1
+  - name: test_2
+    cmd: echo 20
+  - name: line count of rsnapshot log
+    cmd: wc -l /var/log/rsnapshot | awk '{print $1}'
