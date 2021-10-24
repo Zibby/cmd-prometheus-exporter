@@ -6,7 +6,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/prometheus/client_golang/prometheus"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -14,7 +13,6 @@ type Metric struct {
 	Name  string `yaml:"name"`
 	Cmd   string `yaml:"cmd"`
 	Value float64
-	Gauge prometheus.Gauge
 }
 
 func (m Metric) Shellout() (error, string, string) {
@@ -49,7 +47,6 @@ func (m Metric) updateValue() {
 		log.Error("Could not get a float64 for ", m.Name)
 	}
 	log.Info(m.Name, " new value: ", s)
-	log.Debug(m.Name, " gauge:", m.Gauge)
 	m.Value = s
 	m.updateGauge()
 }

@@ -1,1 +1,2 @@
-cmd-export
+cmd-prometheus-exporter
+config.yml
