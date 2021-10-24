@@ -10,10 +10,11 @@ Used to create prometheus guages from any bash command. Most commands that retur
 # Output
 
 ```
- curl http://localhost:8088/metrics                   
+curl http://localhost:8088/metrics                   
+
 # HELP cmd_output Generates gauges from arbitary linux cmds
 # TYPE cmd_output gauge
-cmd_output{name="line count of rsnapshot log"} 49
-cmd_output{name="test"} 1
-cmd_output{name="test_2"} 20
+cmd_output{command="echo 1",name="test"} 1
+cmd_output{command="echo 20",name="test_2"} 20
+cmd_output{command="wc -l /var/log/rsnapshot | awk '{print $1}'",name="line count of rsnapshot log"} 56
 ```

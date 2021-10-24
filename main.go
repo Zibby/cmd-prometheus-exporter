@@ -52,7 +52,7 @@ func createGauge() {
 			Name: "cmd_output",
 			Help: "Generates gauges from arbitary linux cmds",
 		},
-		[]string{"name"},
+		[]string{"name", "command"},
 	)
 	reg.Register(config.Gauge)
 }

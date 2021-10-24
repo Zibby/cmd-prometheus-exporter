@@ -29,7 +29,7 @@ func (m Metric) Shellout() (error, string, string) {
 
 func (m Metric) updateGauge() {
 	log.Debug("setting ", m.Name, "u to ", m.Value)
-	config.Gauge.WithLabelValues(m.Name).Set(m.Value)
+	config.Gauge.WithLabelValues(m.Name, m.Cmd).Set(m.Value)
 }
 
 func (m Metric) updateValue() {
